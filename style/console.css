@@ -1,0 +1,124 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: radial-gradient(circle, #1a1a1a, #000) no-repeat center center fixed;
+    color: #0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+  }
+
+  .console-container {
+    display: grid;
+    grid-template-columns: 65% auto;
+    grid-template-rows: 95% 5%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    align-self: flex-start;
+  }
+  #console {
+    background: #00000000;
+    padding: 15px;
+    overflow-y: auto;
+    border: 2px solid #555;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  }
+
+  #console div,
+  #console .output {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  #input {
+    width: 100%;
+    background-color: #00000000;
+    border: none;
+    color: #0f0;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    caret-color: #0f0;
+    grid-column: span 2;
+    border: 2px solid #555;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  }
+
+  .output {
+    color: #0f0;
+  }
+
+  /* Стиль блока просмотра файла */
+  #fileViewer {
+    background: #00000000;
+    color: #fff;
+    padding: 15px;
+    margin: 0;
+    border: 2px solid #555;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    z-index: 10;
+    box-sizing: border-box;
+  }
+
+  #fileViewer button {
+    background: #444;
+    color: #fff;
+    border: 1px solid #666;
+    padding: 5px 10px;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  }
+
+  #fileViewer button:hover {
+    background: #555;
+  }
+
+  #fileContent {
+    margin-top: 10px;
+    overflow-y: auto;
+    max-height: 95%;
+    text-shadow: none;
+  }
+
+  /* VHS эффекты */
+  @keyframes scanline {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  #console::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      rgba(0, 255, 0, 0.1) 50%,
+      transparent 50%
+    );
+    background-size: 100% 2px;
+    animation: scanline 0.5s infinite linear;
+    pointer-events: none;
+  }
+
+  @media (max-width: 900px) {
+    .console-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: 47% 47% 6%;
+    }
+    #input {
+      grid-column: auto;
+    }
+  }

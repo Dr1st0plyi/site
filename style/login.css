@@ -1,0 +1,119 @@
+.registration-container {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    flex-direction: var(--flex-direction, row);
+    overflow: hidden;
+    scroll-snap-align: none;
+    box-sizing: border-box;
+}
+
+.registration-text-section {
+    width: 100%;
+    align-self: center;
+    display: grid;
+    grid-template-columns: auto 400px;
+    grid-template-rows: repeat(2, 100px);
+    gap: 20px;
+    max-width: 600px;
+    position: relative;
+    top: 20vh;
+    z-index: 2;
+}
+.registration-text-section > :first-child {
+    grid-column: span 2; /* Растягиваем на 2 колонки */
+}
+.registration-text-section h1 {
+    font-size: 96px;
+    font-weight: 1000;
+    margin: 0;
+}
+.registration-text-section p {
+    font-size: 28px;
+    margin: 0;
+}
+.form-section {
+    width: 100%;
+    align-self: start;
+    top: 11%;
+    position: relative;
+    max-width: 400px;
+    height: auto;
+    background-color: rgba(21, 21, 21, 0.656);
+    backdrop-filter: blur(5px);
+    z-index: 0;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    color: #fff;
+    font-weight: 600;
+}
+
+.form-section input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.form-section button {
+    background-color: #c9b645;
+    color: #000;
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.form-section button:hover {
+    background-color: #b0a742;
+}
+
+#registration-message, #login-message {
+    margin-top: 10px;
+    color: #fff;
+}
+
+.registration-text {
+    text-align: center;
+}
+@media (max-width: 1000px) {
+    .registration-text-section {
+        position: absolute;
+        top: 65vh;
+        grid-template-columns: auto 350px;
+        grid-template-rows: repeat(2, 80px);
+        gap: 5px;
+    }
+    .registration-text-section h1 {
+        font-size: 75px;
+    }
+    .registration-text-section p{
+        font-size: 22px;
+    }
+}
+@media (max-width: 768px) {
+    .registration-text-section {
+        display: none;
+    }
+    .registration-text-section h1 {
+        font-size: 35px;
+    }
+    .registration-text-section p {
+        font-size: 15px;
+    }
+    .form-section {
+        top: 15%;
+    }
+}

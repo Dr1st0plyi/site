@@ -1,0 +1,66 @@
+/* Основной стиль контейнера */
+.notification {
+    position: fixed; /* Изменено на fixed для закрепления в правом нижнем углу */
+    bottom: 20px; /* Отступ от нижней грани */
+    right: 20px; /* Отступ от правой грани */
+    display: inline-block;
+    z-index: 1000; /* Убедитесь, что уведомления находятся над другими элементами */
+}
+
+.dropdown {
+    position: absolute;
+    right: -250px;
+    bottom: 50px;
+    background-color: #000000;
+    width: 200px;
+    overflow: hidden;
+    z-index: 999;
+    transform: translateX(0px);
+    transition: transform 0.4s ease;
+}
+
+.icon {
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.bell {
+    font-size: 24px;
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #414141;
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 50%;
+}
+
+.notification:hover .dropdown {
+    transform: translateX(-200px);
+}
+
+.notification-list {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.notification-list li {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.notification-list li:hover {
+    background-color: #8f7500;
+}
